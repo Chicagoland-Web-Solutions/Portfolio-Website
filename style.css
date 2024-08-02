@@ -5,8 +5,13 @@
     padding:0;
     box-sizing:border-box;
 }
-main > *, nav {
+html,body {
     overflow-x: hidden;
+}
+@media (min-width: 1035px) {
+    html{
+        scroll-snap-type:y proximity;
+    }
 }
 :root{
     --paleblue: rgb(237, 244, 247);
@@ -128,8 +133,6 @@ nav a:not(#contact):hover{
 
 main{
     margin-top:70px;
-    scroll-snap-type:y mandatory;
-    scroll-margin-top:68px;
 }
 
 .hero{
@@ -408,11 +411,12 @@ main{
 
 .story{
     height:auto;
-    background-image:url(Pictures/blueshapes\ bg.png);
+    background-image:url(Pictures/aboutbg.jpeg);
     background-repeat:no-repeat;
-    background-size:cover;
+    background-size: cover;
+    background-position: bottom;
     color:white;
-    padding: 2em 9.6%;
+    padding: 4em 9.6% 5em 9.6%;
 }
 .storytext{
     margin-right:auto;
@@ -422,13 +426,16 @@ main{
 }
 .storytext p {
     text-align:left;
-    margin-bottom:2em;
+    font-size:1.07rem;
 }
 .storytext h1{
+    font-size:2.7em;
     margin-bottom:0.3em;
     text-align:center;
 }
 .aboutheader{
+    scroll-snap-align: start;
+    scroll-margin-top:130px;
     width:100%;
     padding:60px 0;
 }
@@ -445,6 +452,7 @@ main{
     gap:50px;
 }
 .aboutgrid h1{
+    font-size:2em;
     margin-bottom:0.5em;
 }
 .aboutgrid p {
@@ -523,7 +531,8 @@ main{
 }
 @media(max-width: 630px){
     .story{
-        padding: 2em 5%;
+        padding-left:5%;
+        padding-right:5%;
     }
 }
 @media(max-width:490px){
@@ -547,12 +556,10 @@ main{
     text-align:center;
     line-height: 1.4em;
 }
-@media(max-width: 450px) {
+@media(max-width:420px){
     #explore_action{
         font-size:1.2rem;
     }
-}
-@media(max-width:420px){
     .action h2 {
         font-size: 1.22rem;
     }
@@ -694,7 +701,7 @@ main > hr{
     width:100%;
     padding:3em max(6%, 2em);
     line-height:1.4;
-    font-size:1.5rem;
+    font-size:1.6rem;
 }
 @media (max-width: 775px){
     .pricing, .pricing a{
@@ -715,7 +722,7 @@ main > hr{
     box-shadow: 0 0 10px rgba(69, 81, 248, 0.5);
 }
 #reach{
-    padding:0.3em 0.6em;
+    padding:0.3em;
     margin:0.4em;
 }
 #please{
@@ -724,7 +731,7 @@ main > hr{
     justify-content:center;
 }
 @media(max-width: 425px){
-    #please, #please a{
+    #please, #reach{
         font-size:1.2rem;
         margin-top:1em;
         width:100%;
@@ -737,22 +744,30 @@ main > hr{
     padding: 3em 11.5%;
     display:flex;
     justify-content: space-between;
+    align-items:center;
     gap:5em;
 }
 .contactinfo p, #formheader {
     font-size:1.2rem;
+}
+.contactinfo a{
+    text-decoration:none;
+    transition: all 0.1s ease;
 }
 .contactinfo h3{
     padding: 0.5em 1em;
     color:rgb(0, 0, 0);
     outline:3px solid black;
     /* background-image: linear-gradient(to bottom right, rgba(54, 19, 212) 0%, rgba(42, 151, 230) 100%); */
-    background-color:white;
     border-radius:0.8em;
     height: 2.5em;
     display:flex;
     align-items:center;
     justify-content:center;
+}
+.contactinfo a:hover{
+    background-color:rgb(214, 214, 214);
+    transform: scale(1.07);
 }
 #formheader{
     text-align:center;
@@ -761,10 +776,18 @@ main > hr{
 .form{
     padding: 3em 11%;
 }
+@media(max-width: 430px){
+    .form{
+        padding:3em 0;
+    }
+    #formheader{
+        padding:0 5%;
+    }
+}
 form{
     background-image: linear-gradient(to bottom right, rgb(54, 19, 212) 0%, rgb(42, 151, 230) 100%);
     color:white;
-    width:80%;
+    max-width: max(80%, 333px);
     margin: 3em auto;
     border-radius:0.8em;
     display:grid;
@@ -788,11 +811,13 @@ form input, textarea{
     font-family: "Gabarito", sans-serif;
     font-size:1.2rem;
     font-weight:400;
+    transition: all 0.1s ease;
 }
 form input:focus, form textarea:focus{
     z-index:2;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add a shadow effect */
-    outline: solid rgb(0, 0, 0) 2px; /* Remove default outline */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.7); /* Add a shadow effect */
+    outline: none;
+    transform:scale(1.01);
 }
 #message{
     height:100%;
@@ -905,10 +930,19 @@ footer{
     margin: 50px 0 15px 0;
     color: rgb(0, 0, 0);
 }
+.footertop h1{
+    font-weight: 600;
+    font-size:1.8rem;
+}
 .footertop > h2 {
-    margin: 0 0.5em;
-    font-size: 50px;
-    font-weight: 400;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    font-size: 4em;
+    font-weight: 500;
+}
+.footertop > h2::selection {
+    color:black;
+    background-color:rgb(237, 244, 247);;
 }
 footer hr{
     display:none;
@@ -917,6 +951,9 @@ footer hr{
     display:flex;
     flex-direction: column;
     gap: 0.3em;
+}
+.footerinfo h5{
+    font-weight:600;
 }
 .socials{
     width:100%;
@@ -966,10 +1003,42 @@ footer hr{
     }
     .footertop>hr{
         display:inline-block;
-        width:60%;
+        border:none;
+        outline:none;
+        border-bottom:3px solid black;
+        width:100px;
         margin: 12px auto;
     }
     .footerinfo{
         align-items: center;
     }
+}
+@media(width<420px){
+    .footertop h1 {
+        font-size:1.3rem;
+    }
+}
+
+@keyframes fadedown{
+    from{
+        opacity:0;
+        transform: translateY(-40px);
+    }
+    to{
+        opacity:1;
+        transform: translateY(0px);
+    }
+}
+.fadedown {
+    animation:fadedown 0.8s ease both;
+}
+.mission{animation-delay:0.4s;}
+.computer{animation-delay:0.6s;}
+.collabpic{animation-delay:0.8s;}
+.approach{animation-delay:1s;}
+.story h1{
+    animation-delay:0.2s
+}
+.story p{
+    animation-delay:0.3s
 }
