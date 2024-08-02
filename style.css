@@ -8,9 +8,6 @@
 main > *, nav {
     overflow-x: hidden;
 }
-html{
-    scroll-snap-type:y proximity;
-}
 :root{
     --paleblue: rgb(237, 244, 247);
 }
