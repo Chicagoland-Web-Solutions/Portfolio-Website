@@ -1037,8 +1037,23 @@ footer hr{
 .collabpic{animation-delay:0.8s;}
 .approach{animation-delay:1s;}
 .story h1{
-    animation-delay:0.2s
+    animation-delay:0.2s;
 }
 .story p{
-    animation-delay:0.3s
+    animation-delay:0.3s;
+}
+.feel{
+    animation-delay:0s;
+}
+#emailink{
+    animation-delay:0.2s;
+}
+#contacthr{
+    animation-delay:0.3s;
+}
+#formheader{
+    animation-delay:0.5s;
+}
+#former{
+    animation-delay:0.7s;
 }
