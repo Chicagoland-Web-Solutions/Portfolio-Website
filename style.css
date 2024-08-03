@@ -21,6 +21,9 @@ body{
     font-weight:600;
     overflow-x:hidden;
 }
+a{
+    text-decoration:none;
+}
 #close, #open, #menutog{
     display:none;
 }
@@ -40,7 +43,7 @@ nav{
     z-index:100;
     box-shadow: 0px 6px 13px 3px rgba(0,0,0,0.1);
 }
-nav > h1 {
+nav h1 {
     background-image: linear-gradient(to bottom right, rgb(59, 30, 185) 20%, rgb(67, 155, 218) 65%);
     background-clip: text;
     color: transparent;
@@ -55,10 +58,9 @@ nav svg {
     gap:1em;
     margin-left:auto;
 }
-nav a{
+.links a{
     display:flex;
     align-items:center;
-    text-decoration:none;
     padding:0.4em 0.8em;
     font-size:1rem;
     border-radius: 0.8em;
@@ -69,16 +71,16 @@ nav a{
 .links svg{
     margin-left: 0.3em;
 }
-nav a:hover{
+.links a:hover{
     transform: scale(1.08);
 }
-nav a:not(#contact):hover{
+.links a:not(#contact):hover{
     background-color: rgb(183, 187, 194);
 }
 #contact:hover{
-    background-image: linear-gradient(to bottom right, rgb(88, 90, 207), rgb(67, 170, 218));
+    background-image: linear-gradient(to bottom right, rgb(74, 77, 240), rgb(81, 182, 230));
 }
-@media (width<1035px) {
+@media (max-width: 1035px) {
     .links{
         position:fixed;
         right:0;
@@ -96,7 +98,7 @@ nav a:not(#contact):hover{
     .links svg{
         margin-left: auto;
     }
-    nav a{
+    .links a{
         width:100%;
     }
     #close{
@@ -120,12 +122,12 @@ nav a:not(#contact):hover{
         transform:scale(1.2) translateY(3px);
     }
 }
-@media(width < 450px){
-    nav > h1 {
+@media(max-width: 450px){
+    nav h1 {
         font-size: 1.2rem;
     }
 }
-@media(width < 355px){
+@media(max-width: 355px){
     .links a{
         font-size:0.92rem;
     }
@@ -142,22 +144,12 @@ main{
     flex-direction:column;
     background:gray;
     padding: 4% 6% 4.5em 6%;
-    background-image:url(Pictures/blueshapes\ bg.png);
+    background-image:url(Pictures/blue\ background.jpg);
     background-size: cover; 
     background-position: center center; 
     background-repeat: no-repeat;
 }
-.hero::after {
-    visibility: hidden;
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.15); /* Black overlay with 30% opacity */
-    pointer-events: none; /* Ensures the overlay does not interfere with user interaction */
-}
+
 .slogan {
     background-color:white;
     padding:1.5em 2em;
@@ -167,7 +159,6 @@ main{
     flex-direction:column;
     gap: 0.5em;
     align-items:start;
-    color: rgb(35, 35, 207);
     box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.3);
     z-index: 5;
 }
@@ -198,20 +189,20 @@ main{
     }
 }
 .hero a{
-    transform: scale(1);
-    animation: fadeInLeft 0.6s ease both;
+    animation: fadeInLeft 0.6s backwards;
     animation-delay:0.7s;
     z-index: 5;
     margin-top:auto;
     margin-left:auto;
     background-color: rgb(11, 11, 150);
-    text-decoration:none;
     color:white;
     padding:0.5em 1.5em;
     border-radius:0.8em;
     font-size:1.5rem;
     box-shadow: -2px 3px 10px rgba(0, 0, 0, 0.75);
-    transition: background-color 0.1s ease-in-out, box-shadow 0.1s ease, transform 0.1s cubic-bezier(0, 0.17, 0.08, 0.99);
+    transition: background-color 0.1s ease-in-out, 
+                box-shadow 0.1s ease, 
+                transform 0.1s cubic-bezier(0, 0.17, 0.08, 0.99);
 }
 .hero a:hover{
     box-shadow: -2px 3px 12px rgba(0, 0, 0, 0.25);
@@ -223,7 +214,7 @@ main{
         padding-left: calc(6% + 1.5em + 5px);
     }
 }
-@media(width < 580px) {
+@media(max-width: 580px) {
     .hero {
         padding-top:2em;
         padding-left:0;
@@ -246,13 +237,13 @@ main{
         font-size:1.5rem;
     }
 }
-@media(width < 470px) {
+@media(max-width: 470px) {
     #hq, #for, #at{
         font-size: 1.8rem;
         font-weight:700;
     }
 }
-@media(width < 425px) {
+@media(max-width: 425px) {
     #hq, #for, #at{
         font-size: 1.6rem;
     }
@@ -260,7 +251,7 @@ main{
         font-size:1.4rem;
     }
 }
-@media(width < 380px) {
+@media(max-width: 380px) {
     #hq, #for, #at{
         font-size: 1.5rem;
     }
@@ -268,7 +259,7 @@ main{
         font-size:1.3rem;
     }
 }
-@media(width < 360px) {
+@media(max-width: 360px) {
     #hq, #for, #at{
         font-size: 1.4rem;
     }
@@ -385,19 +376,19 @@ main{
     align-self:flex-start;
     flex: 1;
 }
-@media(width < 780px) {
+@media(max-width: 780px) {
     .list h3 {font-size: 1.7rem;}
 }
-@media(width<700px) {
+@media(max-width: 700px) {
     .list h3{font-size:1.4rem;}
     .row1, .row2, .row3 {flex-direction:column;}
     #t1,#t2,#t3{text-align:center;}
     .action h2{width:88%}
 }
-@media(width<580px) {
+@media(max-width: 580px) {
     .reasons h1{font-size:2rem;}
 }
-@media(width<450px) {
+@media(max-width: 450px) {
     .list h3{font-size:1.05rem;}
     .list p{font-size:1rem;}
 }
@@ -410,19 +401,32 @@ main{
 
 
 .story{
+    position:relative;
     height:auto;
     background-image:url(Pictures/aboutbg.jpeg);
     background-repeat:no-repeat;
     background-size: cover;
     background-position: bottom;
     color:white;
-    padding: 4em 9.6% 5em 9.6%;
+    padding: 3.5em 8.6% 8em 8.6%;
+    overflow: hidden;
+}
+.story::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25%; /* Adjust the height of the gradient as needed */
+    background: linear-gradient(to bottom, rgba(8, 0, 50, 0) 0%, white 100%);
+    z-index:2;
 }
 .storytext{
     margin-right:auto;
     text-align:center;
     max-width:65ch;
     line-height:1.5;
+    z-index:3;
 }
 .storytext p {
     text-align:left;
@@ -521,6 +525,7 @@ main{
         grid-area: D;
         max-height:100%;
         align-self:start;
+        justify-self:center;
     }
     .storytext p{
         text-align:center;
@@ -567,7 +572,6 @@ main{
 .action a, .pricing a{
     display:inline-block;
     background-color: rgb(11, 11, 150);
-    text-decoration:none;
     color:white;
     padding:0.5em 1.5em;
     border-radius:0.8em;
@@ -602,16 +606,6 @@ main > hr{
     transform: translateY(20px); /* Start from below */
     transition: opacity 0.5s, transform 0.5s;
     animation: fadeInRight 0.6s ease forwards;
-}
-@keyframes fadein {
-    0% {
-      opacity: 0;
-      transform: translateX(-30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
 }
 :root {
     --delay-time: 0.2s;
@@ -751,7 +745,6 @@ main > hr{
     font-size:1.2rem;
 }
 .contactinfo a{
-    text-decoration:none;
     transition: all 0.1s ease;
 }
 .contactinfo h3{
@@ -772,6 +765,7 @@ main > hr{
 #formheader{
     text-align:center;
     margin:0 auto;
+    max-width: max(80%, 333px);
 }
 .form{
     padding: 3em 11%;
@@ -855,7 +849,7 @@ form input:focus, form textarea:focus{
     transform: scale(1.08);
     background-color:rgb(35, 124, 240);
 }
-@media (width < 1035px) {
+@media (max-width: 1035px) {
     .contactinfo{
         flex-direction: column;
         align-items:center;
@@ -868,7 +862,7 @@ form input:focus, form textarea:focus{
         width:100%;
     }
 }
-@media(width < 795px){
+@media(max-width: 795px){
     .contactinfo p, .contactinfo h3, #formheader, form label, form input, textarea, #submit {
         font-size: 1.1rem;
     }
@@ -883,7 +877,7 @@ form input:focus, form textarea:focus{
         font-weight:500;
     }
 }
-@media(width < 700px){
+@media(max-width: 700px){
     .formgroup{
         grid-template-rows: auto;
         grid-template-rows:subgrid;
@@ -902,7 +896,7 @@ form input:focus, form textarea:focus{
         margin-left:1em;
     }
 }
-@media(width < 450px){
+@media(max-width: 450px){
     form label, form input, textarea{
         font-size: 1rem;
     }
@@ -994,7 +988,7 @@ footer hr{
 #yt:hover{
     fill:rgb(254, 0, 0);
 }
-@media(width<850px){
+@media(max-width: 850px){
     .footertop{
         flex-direction: column;
     }
@@ -1013,7 +1007,7 @@ footer hr{
         align-items: center;
     }
 }
-@media(width<420px){
+@media(max-width: 420px){
     .footertop h1 {
         font-size:1.3rem;
     }
@@ -1030,17 +1024,17 @@ footer hr{
     }
 }
 .fadedown {
-    animation:fadedown 0.8s ease both;
+    animation:fadedown 0.8s ease backwards;
 }
 .mission{animation-delay:0.4s;}
 .computer{animation-delay:0.6s;}
 .collabpic{animation-delay:0.8s;}
 .approach{animation-delay:1s;}
 .story h1{
-    animation-delay:0.2s;
+    animation-delay:0.05s;
 }
 .story p{
-    animation-delay:0.3s;
+    animation-delay:0.2s;
 }
 .feel{
     animation-delay:0s;
