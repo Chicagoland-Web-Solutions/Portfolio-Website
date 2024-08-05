@@ -751,7 +751,7 @@ main > hr{
     padding-right:1.5em;
     gap: 2em;
 }
-.conheader{
+#conheader{
     margin-top:0.8em;
     font-size:2.7rem;
     background-image: linear-gradient(to bottom right, rgb(59, 30, 185) 20%, rgb(67, 155, 218) 65%);
@@ -862,10 +862,10 @@ form input:focus, form textarea:focus{
     .conleft{
         padding:0;
     }
-    .conheader, form, .contactinfo{
+    #conheader, form, .contactinfo{
         margin: 0.5em auto;
     }
-    .conheader{
+    #conheader{
         margin-top:0;
     }
     form{
@@ -1072,7 +1072,7 @@ footer hr{
     animation-delay:0.2s;
 }
 
-.conheader{
+#conheader{
     animation-delay:0s;
 }
 .feel{
