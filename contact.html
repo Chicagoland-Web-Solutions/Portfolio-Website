@@ -10,6 +10,7 @@
 <body>
     <nav>
         <input type="checkbox" id="menutog" checked>
+        <label for="menutog" id="moverlay"></label>
         <a href="index.html"><h1>Chicagoland Web Solutions</h1></a>
         <div class="links">
             <a href="index.html">Home<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg></a>
@@ -33,7 +34,7 @@
             <p class="fadeInRight contactinfo" id="arrow">📄 Or you can send us a message through this form &rarr;</p>
             <p class="fadeInRight contactinfo" id="noarrow">📄 Or you can send us a message through this form</p>
         </div>
-        <form id="former" action="https://api.web3forms.com/submit" method="POST">
+        <form action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="7fa394c4-4bad-42e9-ba53-a4a93ecc1d03">
             <h2>Contact Form</h2>
             <div class="formgroup">
@@ -53,9 +54,56 @@
                 <textarea id="message" name="message"></textarea>
             </div>
             <button id="submit" type="submit" class="formgroup">Submit</button>
-            <p id="privacy">View Privacy Policy</p>
+            <label for="tog-pp" id="privacy"><p>View Privacy Policy</p></label>
         </form>
     </main>
+    <input type="checkbox" id="tog-pp">
+    <label for="tog-pp" id="overlay"></label>
+    <div id="privacy-policy">
+        <label for="tog-pp" id="closepp"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></label>
+        <h1>Privacy Policy</h1>
+        <p><strong>Effective Date: </strong>August 6, 2024</p>
+
+        <h2>1. Introduction</h2>
+        <p>Welcome to Chicagoland Web Solutions (“we,” “our,” “us”). We value your privacy and are committed to protecting your personal information. This Privacy Policy outlines how we collect, use, and safeguard your data when you visit our website at <a href="https://chicagoland-web-solutions.github.io/Portfolio-Website/" target="_blank">https://chicagoland-web-solutions.github.io/Portfolio-Website/</a> (the “Site”).</p>
+
+        <h2>2. Information We Collect</h2>
+        <p>We collect the following types of personal information through our website:</p>
+        <ul>
+            <li>Name</li>
+            <li>Email Address</li>
+            <li>Business Name</li>
+        </ul>
+
+        <h2>3. Data Collection Methods</h2>
+        <p>We collect data through forms on our website. The information you provide is used for feedback, inquiries, and questions.</p>
+
+        <h2>4. Purpose of Data Collection</h2>
+        <p>The data we collect is used solely for:</p>
+        <ul>
+            <li>Responding to your feedback and inquiries.</li>
+            <li>Addressing any questions you may have.</li>
+        </ul>
+
+        <h2>5. Data Sharing</h2>
+        <p>We do not share your personal data with third parties. All data collected is handled directly by us.</p>
+
+        <h2>6. Data Security</h2>
+        <p>We use Web3Forms to collect data from the forms on our website and send it to our business email. Web3Forms ensures that all collected data is secure.</p>
+
+        <h2>7. User Rights</h2>
+        <p>If you wish to access, update, or delete your personal information, please contact us at <a href="mailto:chicagolandwebsolutions@gmail.com">chicagolandwebsolutions@gmail.com</a>. We will promptly address your request and delete the information if requested.</p>
+
+        <h2>8. Cookies and Tracking</h2>
+        <p>Our website does not use cookies or other tracking technologies.</p>
+
+        <h2>9. Policy Updates</h2>
+        <p>Any updates to our Privacy Policy will be posted directly on our website. We encourage you to review this policy periodically to stay informed about how we are protecting your data.</p>
+
+        <h2>10. Contact Us</h2>
+        <p>If you have any questions or concerns regarding this Privacy Policy or our data practices, please contact us at:</p>
+        <ul><li><p>Email: <a href="mailto:chicagolandwebsolutions@gmail.com">chicagolandwebsolutions@gmail.com</a></p></li></ul>
+    </div>
     <footer>
         <div class="footertop">
             <h1>Chicagoland Web Solutions</h1>

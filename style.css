@@ -113,6 +113,19 @@ nav svg {
         transform:translateY(-100%);
         box-shadow: none;
     }
+    #menutog:checked ~ #moverlay{
+        display:none;
+    }
+    #moverlay{
+        position:fixed;
+        top:0;
+        left:0;
+        z-index:9;
+        background-color: rgba(0, 0, 0, 0.2);
+        width:100vw;
+        height:100vh;
+        display:block;
+    }
     #open {
         display:inline;
         transition: transform 0.2s cubic-bezier(0, 0.17, 0.08, 0.99);
@@ -784,10 +797,16 @@ form{
     display:grid;
     gap: 0.5em;
     grid-template-columns: 14ch 1fr;
-    grid-template-rows: 8em 6em 6em 6em 10em 8em;
+    grid-template-rows: 8em 6em 6em 6em 10em 6.5em 1.5em;
     padding: 0 4em 0.5em 4em;
     grid-template-areas:
-        "co co";
+        "co co"
+        "r r"
+        "r r"
+        "r r"
+        "r r"
+        "r r"
+        "pr pr";
 }
 form h2{
     font-size:2rem;
@@ -854,6 +873,13 @@ form input:focus, form textarea:focus{
     transform: scale(1.08);
     background-color:rgb(35, 124, 240);
 }
+#privacy {
+    margin-bottom:1em;
+    font-size:1rem;
+    grid-area: pr;
+    color:white;
+    transition: color 0.2s ease;
+}
 @media (max-width: 1100px) {
     #contactmain{
         flex-direction:column;
@@ -906,7 +932,20 @@ form input:focus, form textarea:focus{
 @media(max-width: 475px){
     form{
         grid-template-columns: 1fr 0;
-        grid-template-rows: 8em repeat(3, 1.5em 4em) 2em 8em 8em;
+        grid-template-rows: 8em repeat(3, 1.5em 4em) 2em 8em 6.5em 1.5em;
+        grid-template-areas:
+        "co"
+        "r"
+        "r"
+        "r"
+        "r"
+        "r"
+        "r"
+        "r"
+        "r"
+        "r"
+        "r"
+        "pr";
     }
     .formgroup{
         grid-template-rows:subgrid;
@@ -929,6 +968,14 @@ form input:focus, form textarea:focus{
         align-self:flex-end;
         margin-left:0.8em;
     }
+    #privacy{
+        justify-self:center;
+        margin:0;
+        width:100%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
 }
 @media (max-width: 380px){
     form h2{
@@ -936,10 +983,83 @@ form input:focus, form textarea:focus{
     }
 }
 
-#privacy {
-    margin-bottom:1em;
+#tog-pp {
     display:none;
 }
+
+#privacy:hover{
+    color: rgb(158, 158, 170);
+}
+#overlay{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    height:100vh;
+    width:100vw;
+    z-index:19;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+#privacy-policy{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display:none;
+    font-weight:300;
+    z-index:20;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -42%);
+    position:fixed;
+    height:76%;
+    width:60%;
+    padding:3em;
+    border-radius:0.8em;
+    overflow-y: auto;
+    background-color:rgb(255, 255, 255);
+    border: 1em solid rgb(255, 255, 255);
+    outline: 2px solid black;
+    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+#tog-pp:checked ~ #privacy-policy, #tog-pp:checked ~ #overlay {
+    display:inline-block;
+}
+#privacy-policy li {
+    margin-left: 3em;
+}
+#privacy-policy h2{
+    font-size: 1.2em;
+    margin-top: 1em;
+}
+#privacy-policy a{
+    text-decoration: underline;
+}
+#closepp{
+    position: fixed;
+    top:0;
+    left:0;
+    transition: all 0.1s ease;
+}
+#closepp:hover{
+    transform:scale(1.2);
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+    cursor: pointer;
+}
+@media (max-width:1000px) {
+    #privacy-policy{
+        width:88%;
+    }
+}
+@media (max-width:500px) {
+    #privacy-policy h1{
+        font-size:1.5rem;
+    }
+    #privacy-policy h2{
+        font-size:1rem;
+    }
+    #privacy-policy p, #privacy-policy li, #privacy-policy a{
+        font-size:0.8rem;
+    }
+}
+
 
 footer{
     scroll-snap-align:end;
@@ -1078,7 +1198,7 @@ footer hr{
 }
 
 .conhr{
-    animation: fadeexist 0.8s ease forwards;
+    animation: fadeexist 0.8s ease-in backwards;
 }
 
 #conheader{
