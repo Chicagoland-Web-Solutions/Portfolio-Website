@@ -63,9 +63,10 @@ nav svg {
     align-items:center;
     padding:0.4em 0.8em;
     font-size:1rem;
+    font-weight:800;
     border-radius: 0.8em;
     color: black;
-    outline: solid 2px black;
+    outline: solid 2.5px black;
     transition: background-color 0.1s ease-in-out, transform 0.1s cubic-bezier(0, 0.17, 0.08, 0.99);
 }
 .links svg{
@@ -312,7 +313,17 @@ main{
     height:10em;
     width:10em;
     border-radius:5em;
-    background-color:gray;
+    background-color: rgb(190, 220, 232);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+.centerimage img {
+    transform:scaleX(1.02);
+    width:100%;
+    height:100%;
+    filter: brightness(1.3);
 }
 @media (max-width: 1080px) {
     .leftside, .rightside{
@@ -369,6 +380,7 @@ main{
 .list p {
     font-weight:400;
     line-height:1.4;
+    font-size:1rem;
 }
 #i1, #i2, #i3 , .features svg{
     align-self: center;
@@ -386,7 +398,7 @@ main{
     justify-content:flex-start;
     gap:0.5em;
     margin-top:0.5em;
-    align-self:flex-start;
+    align-self:center;
     flex: 1;
 }
 @media(max-width: 780px) {
@@ -412,19 +424,27 @@ main{
     justify-content:flex-start;
 }
 
-
+@keyframes fadezoom {
+    from{
+        filter: blur(5px);
+    }
+    to{
+        filter: blur(0px);
+    }
+}
 .story{
-    position:relative;
+    animation:fadezoom 0.5s ease forwards;
     height:auto;
-    background-image:url(Pictures/aboutbg.jpeg);
+    background-image:url(Pictures/Dark\ blue\ about.jpeg);
     background-repeat:no-repeat;
     background-size: cover;
-    background-position: bottom;
+    background-position:center;
     color:white;
-    padding: 3.5em 8.6% 8em 8.6%;
+    padding: 3.5em 8.6% 6.5em 8.6%;
     overflow: hidden;
 }
 .story::after {
+    visibility: hidden;
     content: '';
     position: absolute;
     bottom: 0;
@@ -444,6 +464,7 @@ main{
 .storytext p {
     text-align:left;
     font-size:1.07rem;
+    text-shadow: 0px 0px 15px rgba(0,0,0,0.81);
 }
 .storytext h1{
     font-size:2.7rem;
@@ -454,7 +475,7 @@ main{
     scroll-snap-align: start;
     scroll-margin-top:130px;
     width:100%;
-    padding:60px 0;
+    padding:6em 0;
 }
 .aboutgrid{
     align-items:center;
@@ -480,8 +501,13 @@ main{
     border-radius:0.8em;
     line-height:1.4;
     grid-area: A;
-    padding:2em;
+    padding-left:2em;
+    padding-right:2em;
     height:90%;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    margin-left:auto;
 }
 .computer{
     grid-area:B;
@@ -499,7 +525,11 @@ main{
 }
 .approach{
     border-radius:0.8em;
-    padding:2em;
+    padding-left:2em;
+    padding-right:2em;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
     grid-area: D;
     line-height:1.4;
     height:90%;
@@ -582,6 +612,7 @@ main{
         font-size: 1.22rem;
     }
 }
+
 .action a, .pricing a{
     display:inline-block;
     background-color: rgb(11, 11, 150);
@@ -602,7 +633,9 @@ main > hr{
     width:77%;
     margin: 0 auto;
 }
-
+#abouthr{
+    width:82.8%;
+}
 
 @keyframes fadeInRight {
     from {
@@ -658,24 +691,13 @@ main > hr{
 }
 .features{
     width:100%;
-    padding:4em 11%;
+    padding:4em 11% 6em 11%;
     display:grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap:1.5em;
-}
-@media(max-width: 750px){
-    .card{
-        width: max(280px, 60%);
-    }
-    .features{
-        display:flex;
-        flex-direction:column;
-        gap: 3em;
-        align-items:center;
-    }
+    gap:2.5em;
 }
 .card{
-    background-color:rgb(234, 235, 236);
+    background-color:rgb(232, 239, 244);
     border-radius:0.8em;
     height:24em;
     display:grid;
@@ -697,6 +719,7 @@ main > hr{
 .card p {
     align-self:flex-start;
     line-height:1.4;
+    font-size: 1.1rem;
 }
 .pricing h2{
     margin-bottom:0.5em;
@@ -708,6 +731,31 @@ main > hr{
     padding:3em max(6%, 2em);
     line-height:1.4;
     font-size:1.6rem;
+}
+@media (max-width: 800px) {
+    .card p{
+        font-size:1rem;
+    }
+    .card h2{
+        font-size:1.3rem;
+    }
+}
+@media(max-width: 765px){
+    .card{
+        width: max(325px, 60%);
+    }
+    .card p{
+        font-size:1.1rem;
+    }
+    .card h2 {
+        font-size:1.5rem;
+    }
+    .features{
+        display:flex;
+        flex-direction:column;
+        gap: 3em;
+        align-items:center;
+    }
 }
 @media (max-width: 775px){
     .pricing, .pricing a{
@@ -753,7 +801,7 @@ main > hr{
 
 
 #contactmain{
-    padding: 3em 6% 3em 8.5%; /*8.5% left padding if it looks off*/
+    padding: 3em 6% 5em 8.5%; /*8.5% left padding if it looks off*/
     display:flex;
     gap:1.5em;
 }
@@ -774,7 +822,6 @@ main > hr{
 .contactinfo{
     display:flex;
     flex-direction:column;
-    background-color:white;
     align-content:flex-start;
     font-size: 1.4rem;
     line-height:1.4;
@@ -793,7 +840,7 @@ form{
     flex:1.618;
     background-image: linear-gradient(to bottom right, rgb(54, 19, 212) 0%, rgb(42, 151, 230) 100%);
     color:white;
-    border-radius:0.8em;
+    border-radius:1em;
     display:grid;
     gap: 0.5em;
     grid-template-columns: 14ch 1fr;
@@ -871,7 +918,7 @@ form input:focus, form textarea:focus{
     box-shadow: 0px 0px 10px rgb(255, 255, 255, 0.4);
     cursor: pointer;
     transform: scale(1.08);
-    background-color:rgb(35, 124, 240);
+    background-color:rgb(0, 85, 255);
 }
 #privacy {
     margin-bottom:1em;
@@ -1067,7 +1114,8 @@ footer{
     justify-content:center;
     align-items:center;
     width:100%;
-    background-color:rgb(237, 244, 247);
+    background-color:rgb(236, 245, 249);
+    padding-bottom:2em;
 }
 .footertop{
     display:flex;
@@ -1087,10 +1135,6 @@ footer{
     font-size: 4em;
     font-weight: 500;
 }
-.footertop > h2::selection {
-    color:black;
-    background-color:rgb(237, 244, 247);;
-}
 footer hr{
     display:none;
 }
@@ -1101,15 +1145,17 @@ footer hr{
 }
 .footerinfo h5{
     font-weight:600;
+    font-size:1rem;
 }
 .socials{
     width:100%;
     height:auto;
-    margin: 15px 0;
+    margin: 15px 0 40px 0;
     display:flex;
     justify-content:center;
     align-items:center;
-    transform:translateX(2px)
+    transform:translateX(2px);
+    display:none;
 }
 .socials svg{
     fill: rgb(0, 0, 0);
